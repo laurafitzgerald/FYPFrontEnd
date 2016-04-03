@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-9">
+            <div class="jumbotron text-center">
+                <h2>Your Activities</h2>
+                <hr>
+
+                <div ng-controller="activitiesController as list">
+                    <table class = "table table-striped table-hover"  valign="middle">
+
+                        <thead class="table-row">
+                            <th></th>
+                            <th valign="middle">
+                                <span class="table-down" valign="middle">Activity Name
+                                </span>
+                            </th>
+                            <th valign="middle">
+                                <span class="table-down" valign="middle">Activity Date
+                                </span>
+                            </th>
+                            <th valign="middle">
+                                <span class="table-down" valign="middle">
+                                    <button type="button" class="btn btn-default">
+                                        <i class="fa fa-child">Add New
+                                        </i>
+                                    </button>
+                                </span>
+                            </th>
+
+                        </thead>
+                        <div ng-show="!(activities | orderBy:'-timestamp').length">No Activities to show</div>
+
+                        <tbody ng-repeat="activity in activities | orderBy:'-timestamp'">
+
+
+                            <tr valign="middle"  class="table-row">
+
+                            <td>
+
+                                <i ng-if="activity.type=='Run'"class="material-icons">directions_run</i>
+                                <i ng-if="activity.type=='Cycle'" class="material-icons">directions_bike</i>
+
+
+
+                            </td>
+
+                            <td>
+                                <span class="table-down"  valign="middle">
+                                {{activity.name}}
+                                </span>
+
+                            </td>
+                            <td>
+                                <span class="table-down" valign="middle">
+                                {{activity.timestamp}}
+                                </span>
+                            </td>
+
+                            <td>
+
+                               <span class="table-down" valign="middle">
+
+                                    <button type="button" class="btn btn-default" ng-click="delete(activity)">
+                                        <span class="fa fa-trash"></span> Remove
+
+                                    </button>
+                                    <button type="button" class="btn btn-default" ng-click="edit(activity)">
+                                        <span class="fa fa-pencil"></span> Edit
+                                    </button>
+                                </span>
+                            </td>
+
+                            </tr>
+
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class = "jumbotron text-center">
+                <p>Some business logic here</p>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

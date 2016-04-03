@@ -1,0 +1,87 @@
+<div class ="container">
+    <div class="row">
+        <div ng-controller="bikeController">
+            <div class="col-lg-9">
+                <div class="jumbotron text-center">
+
+                    <h2>Add a Bike</h2>
+                    <hr>
+
+                    <form ng-submit="addBike()">
+                        <div class="form-group" align="center">
+                            Serial Number
+                            <input type="string"
+                                   class="form-control"
+                                   ng-model="serial_number"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+
+                        <div class="form-group" align="center">
+                            Nickname
+                            <input type="string"
+                                   class="form-control"
+                                   ng-model="nickname"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+
+                        <div class="form-group" align="center">
+                            Color
+                            <input type="string"
+                                   class="form-control"
+                                   ng-model="color"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+                        <div class="form-group" align="center">
+                            Make
+                            <input type="string"
+                                   class="form-control"
+                                   ng-model="make"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+                        <div class="form-group" align="center">
+                            Model
+                            <input type="string"
+                                   class="form-control"
+                                   ng-model="model"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+
+                        <div class="form-group" align="center">
+                            Frame Size (in inches)
+                            <input type="number"
+                                   min="13"
+                                   max="23"
+                                   class="form-control"
+                                   ng-model="frame_size"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+
+                        <div class="form-group" align="center">
+                            Type
+                            <select name="bikeTypes"
+                                    type="string"
+                                   class="form-control"
+                                   ng-model="type"
+                                   ng-style="{'width': 250 + 'px'}">
+                                <option value="Mountin">Mountain Bike</option>
+                                <option value="Racer">Racing Bike</option>
+                                <option value="Hybrid">Hybrid Bike</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+
+                        <button type ="submit" class="btn btn-primary">Create</button>
+
+
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

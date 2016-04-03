@@ -1,0 +1,42 @@
+<div class = "container>">
+    <div class="row">
+        <div ng-controller="loginController">
+            <div class = "col-lg-6" >
+                <div class="jumbotron text-center" ng-style="{'width': 500 + 'px'}" >
+
+                    <form ng-submit="login()">
+                        <div class="form-group" align = "center">
+                            Username
+                            <input type="string"
+                                   class="form-control"
+                                    ng-model="userlogin.username"
+                                   ng-style="{'width': 250 + 'px'}"
+                                    />
+                        </div>
+
+
+
+                        <div class="form-group" align="center">
+                            Password
+                            <input type="password"
+                                   class="form-control"
+                                    ng-model="userlogin.password"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+                        <button type="submit" class = "btn btn-primary">Submit</button>
+
+
+                    </form>
+                </div>
+
+            </div>
+
+
+            <div class = "col-lg-6" >
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
