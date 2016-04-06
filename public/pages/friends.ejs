@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-9">
+            <div class="jumbotron text-center">
+                <h2>Your Activities</h2>
+                <hr>
+
+                <div ng-controller="friendsController as list">
+                    <table class = "table table-striped table-hover"  valign="middle">
+
+                        <thead class="table-row">
+
+                        <th valign="middle">
+                                <span class="table-down" valign="middle">Username
+                                </span>
+                        </th>
+                        <th valign="middle">
+                                <span class="table-down" valign="middle">Friends Since
+                                </span>
+                        </th>
+                        <th valign="middle">
+                                <span class="table-down" valign="middle">
+                                       <a href="#/addfriends" class="btn btn-primary">
+                                           <span class="fa fa-users"></span>Add New
+                                       </a>
+                                </span>
+                        </th>
+
+                        </thead>
+                        <div ng-show="!(friendships).length">No Friends to show</div>
+
+                        <tbody ng-repeat="friend in friendships | orderBy:'-timestamp'">
+
+
+                        <tr valign="middle"  class="table-row">
+
+                            <td>
+                                <span class="table-down"  valign="middle">
+                                {{friend.friend_name}}
+                                </span>
+
+                            </td>
+                            <td>
+                                <span class="table-down" valign="middle">
+                                {{friend.timestamp}}
+                                </span>
+                            </td>
+
+                            <td>
+
+                               <span class="table-down" valign="middle">
+
+                                    <button type="button" class="btn btn-default" ng-click="delete(friend)">
+                                        <span class="fa fa-trash"></span> Unfriend
+
+                                    </button>
+
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class = "jumbotron text-center">
+                <p>Some business logic here</p>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

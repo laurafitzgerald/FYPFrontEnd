@@ -1,4 +1,4 @@
-var app = angular.module('CyclingFitnessWebApplication', ['ngRoute', 'ngCookies']);
+var app = angular.module('CyclingFitnessWebApplication', ['ngRoute', 'ngCookies', 'ngMap']);
 
 app.factory('myHttpResponseInterceptor', ['$q', '$cookies', '$location',  function( $q, $cookies, $location){
     return {
@@ -58,10 +58,22 @@ app.config(['$provide', '$httpProvider', '$routeProvider',  function($provide, $
             templateUrl: 'pages/bikes.ejs',
             controller: 'bikesController'
         })
+        .when('/friends',{
+            templateUrl: 'pages/friends.ejs',
+            controller: 'friendsController'
+        })
         .when('/addactivity', {
             templateUrl: 'pages/addactivity.ejs',
             controller: 'activityController'
 
+        })
+        .when('/report', {
+            templateUrl: 'pages/report.ejs',
+            controller: 'reportController'
+        })
+        .when('/reports',{
+            templateUrl: 'pages/reports.ejs',
+            controller: 'reportsController'
         })
         .when('/addfriends',{
             templateUrl: 'pages/addfriend.ejs',

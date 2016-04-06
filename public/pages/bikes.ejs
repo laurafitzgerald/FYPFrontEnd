@@ -8,17 +8,73 @@
                 <div ng-controller="bikesController as list">
                     <table class = "table table-striped table-hover" valign="middle">
 
+                        <thead class="table-row">
+
+                        <th valign="middle">
+                                <span class="table-down" valign="middle">Serial Number
+                                </span>
+                        </th>
+                        <th valign="middle">
+                                <span class="table-down" valign="middle">Make
+                                </span>
+                        </th>
+                        <th valign="middle">
+                                <span class="table-down" valign="middle">Model
+                                </span>
+                        </th>
+                        <th valign="middle">
+                                <span class="table-down" valign="middle">
+                                       <a href="#/addbike" class="btn btn-primary">
+                                           <span class="fa fa-users"></span>Add New
+                                       </a>
+                                </span>
+                        </th>
+
+                        </thead>
+
                         <div ng-show="!(bikes).length"><p>You have no bikes in the system.  <span class = "fa fa-frown-o"></span> </p>
                             <p>Click <a href="#addbike"><b>here</b></a> to add some gear</p>
 
                         </div>
-                        <tbody ng-repeat="bike in bikes | orderBy:'-serial_number'">
-                            <tr>
+                        <tbody ng-repeat="bike in bikes">
+                            <tr valign="middle"  class="table-row">
 
-                               <p>Nickname: <span>{{bike.nickname}}</span></p>
-                                <p>Color: {{bike.color}}</p>
-                                <p>Serial Number: {{bike.serial_number}}</p>
+                                <td>
+                                    <span class="table-down"  valign="middle">
+                                    {{bike.serial_number}}
+                                    </span>
 
+                                </td>
+                                <td>
+                                    <span class="table-down" valign="middle">
+                                    {{bike.make}}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="table-down" valign="middle">
+                                    {{bike.model}}
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                   <span class="table-down" valign="middle">
+
+                                        <button type="button" class="btn btn-default" ng-click="delete(bike.serial_number)">
+                                            <span class="fa fa-trash"></span> Remove
+
+                                        </button>
+                                        <button type="button" class="btn btn-default" ng-click="edit(bike)">
+                                            <span class="fa fa-pencil"></span> Edit
+                                        </button>
+
+                                       <button type="button" class="btn btn-danger" ng-click="report(bike)">
+                                           <span class="fa fa-exclamation-triangle"></span> Report Missing
+                                       </button>
+
+                                    </span>
+                                </td>
 
                             </tr>
                         </tbody>

@@ -10,7 +10,7 @@ app.controller('mainController', ['$scope', '$location', '$cookies', function($s
 
     if(angular.isDefined($cookies.get('sessionKey'))){
 
-        $location.path('/activities');
+        //$location.path('/activities');
     }else{
         $location.path('/login');
     }

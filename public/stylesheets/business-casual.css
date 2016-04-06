@@ -27,6 +27,28 @@ h6 {
     letter-spacing: 1px;
 }
 
+.td-lost{
+    background-color:#FFC458;
+
+
+}
+
+.td-found{
+
+    background-color:#329932;
+}
+.td-stolen{
+
+    background-color:#FF4C4C;
+}
+.css-form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+}
+
 p {
     font-size: 1.25em;
     line-height: 1.6;
