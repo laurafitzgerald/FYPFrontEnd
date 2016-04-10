@@ -4,12 +4,12 @@ var app = angular.module('CyclingFitnessWebApplication');
 
 
 
-app.controller('friendsController', ['$http', '$scope', '$timeout', '$location', function($http, $scope, $timeout, $location){
+app.controller('friendsController', ['$http', '$scope', '$timeout', '$location', '$cookies', function($http, $scope, $timeout, $location, $cookies){
 
     $scope.$location = $location;
 
     $scope.message = "Friends Page";
-
+    $scope.location;
     $scope.friendships = null;
     $scope.searchFriendships = null;
     $scope.results = false;
@@ -18,7 +18,22 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
 
             $scope.friendships = response.data;
         }
-    )
+    );
+
+    $scope.add = function(user){
+
+        var newFriend = {};
+        newFriend.user_name = $cookies.get('currentUser');
+        newFriend.friend_name = user.username;
+
+        $http.post('http://localhost:8000/friendship', newFriend).then(
+            function(){
+
+                $location.path('/friends');
+
+            }
+        )
+    };
 
 
     $scope.searchByUsername = function(){
@@ -32,26 +47,65 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
                 console.log(response.data);
                 $scope.searchFriendships = response.data;
 
+                $scope.checkExisting(response.data);
 
             });
 
+
+    };
+
+    $scope.checkExisting = function(data){
+
+        angular.forEach(data, function(searchvalue, searchindex){
+
+            if(searchvalue.username===$cookies.get('currentUser')){
+                $scope.searchFriendships.splice(searchindex, 1);
+            }
+            angular.forEach($scope.friendships, function(value, index){
+
+
+                console.log("Searchvalue.username " + searchvalue.username);
+                console.log(value.friend_name);
+
+                if(searchvalue.username===value.friend_name){
+                    console.log(searchvalue.username===value.friend_name);
+                    console.log(searchvalue.username);
+
+                    $scope.searchFriendships.splice(searchindex, 1);
+                }
+            })
+        });
 
     }
 
-    $scope.delete = function(friendship){
 
-        $http.delete('http://localhost:8000/friendships/' +friendship.id)
-            .success(function(response){
-                console.log("friend deleted" + response);
+    $scope.searchByLocation = function(){
+
+        console.log($scope.location);
+        $http.get('http://localhost:8000/friendships', {
+            params: {location : $scope.location}
+        }).then(
+            function(response){
+                $scope.results=true;
+                console.log(response.data);
+
+                $scope.searchFriendships = response.data;
+
+                $scope.checkExisting(response.data);
+
 
             });
 
 
+    };
 
-
-
-
-
+    $scope.delete = function(friendship){
+        console.log("delete called");
+        $http.delete('http://localhost:8000/friendships/' +friendship.id)
+            .then(function(response){
+                console.log("friend deleted" + response);
+                $location.path('/friends');
+            });
 
     };
 

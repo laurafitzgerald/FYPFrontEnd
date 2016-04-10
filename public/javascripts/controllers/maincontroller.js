@@ -1,12 +1,17 @@
 var app = angular.module('CyclingFitnessWebApplication' );
 
+app.constant('author', 'Laura Fitzgerald');
 
-app.controller('mainController', ['$scope', '$location', '$cookies', function($scope, $location, $cookies) {
+app.config(['author', function(author){
+
+}]);
+
+app.controller('mainController', ['$scope', '$location', '$cookies', 'author', function($scope, $location, $cookies, author) {
 // create a message to display in our view
     $scope.message = 'Cycling Fitness Web App 1.0';
-
+    $scope.author = author;
     $scope.formData = {};
-
+    $scope.user = $cookies.get('currentUser');
 
     if(angular.isDefined($cookies.get('sessionKey'))){
 

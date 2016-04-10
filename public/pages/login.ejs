@@ -1,10 +1,14 @@
-<div class = "container>">
+<div class = "text-center>">
     <div class="row">
         <div ng-controller="loginController">
-            <div class = "col-lg-6" >
-                <div class="jumbotron text-center" ng-style="{'width': 500 + 'px'}" >
+            <div class = "col-lg-1">
 
-                    <form ng-submit="login()">
+            </div>
+            <div class = "col-lg-5" >
+                <div class="box" class="text-center" style="min-height: 500px;">
+                        <h2 class="text-center">Login</h2>
+                    <hr>
+                    <form ng-submit="login()" valign="center">
                         <div class="form-group" align = "center">
                             Username
                             <input type="string"
@@ -23,7 +27,7 @@
                                     ng-model="userlogin.password"
                                    ng-style="{'width': 250 + 'px'}"/>
                         </div>
-                        <button type="submit" class = "btn btn-primary">Submit</button>
+                        <button valign="center" type="submit" class = "btn btn-primary">Log-in</button>
 
 
                     </form>
@@ -32,9 +36,19 @@
             </div>
 
 
-            <div class = "col-lg-6" >
+            <div class = "col-lg-5" >
+                <div class="box" style="min-height: 500px;">
+                    <h2 class="text-center">Register</h2>
+                    <hr>
 
 
+                    <button valign="center" type="submit" class = "btn btn-primary">Register</button>
+
+                </div>
+
+
+            </div>
+            <div class = "col-lg-1">
 
             </div>
         </div>

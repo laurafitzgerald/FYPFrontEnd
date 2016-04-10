@@ -30,6 +30,9 @@ app.factory('myHttpResponseInterceptor', ['$q', '$cookies', '$location',  functi
 
 }]);
 
+app.constant('author', 'Laura Fitzgerald');
+
+
 app.config(['$provide', '$httpProvider', '$routeProvider',  function($provide, $httpProvider,$routeProvider ){
 
 
@@ -42,14 +45,18 @@ app.config(['$provide', '$httpProvider', '$routeProvider',  function($provide, $
     // route for the home page
         .when('/', {
             templateUrl : 'pages/home.ejs',
-            controller  : 'mainController'
+            controller  : 'homeController'
         })
-
         .when('/about', {
             templateUrl : 'pages/about.ejs',
             controller: 'aboutController'
 
         })
+        .when('/activity/:id',{
+            templateUrl : 'pages/activity.ejs',
+            controller : 'activityController'
+        })
+
         .when('/activities',{
             templateUrl: 'pages/activities.ejs',
             controller: 'activitiesController'

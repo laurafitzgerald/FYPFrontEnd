@@ -82,6 +82,15 @@
                                     </span>
 
                                 </td>
+                                <td ng-if="report.status===null" ></td>
+
+                                <td>
+                                    <button type="button" class="btn btn-default" ng-click="delete(report.id)">
+                                        <span class="fa fa-trash"></span> Remove
+
+                                    </button>
+
+                                </td>
 
 
 

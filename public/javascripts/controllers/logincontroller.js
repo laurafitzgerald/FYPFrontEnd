@@ -28,7 +28,7 @@ app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '
                     $cookies.put('sessionKey', response);
                     $cookies.put('currentUser', $scope.userlogin.username);
                     console.log("Session key " + $cookies.get('sessionKey'));
-                    $location.path('/about');
+                    $location.path('/homefeed');
                 }
 
 

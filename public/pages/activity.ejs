@@ -1,63 +1,22 @@
-
-<div class = "container">
+<div class=" text-center">
 
     <div class = "row">
+         <div class = "col-lg-1">
+
+         </div>
         <div ng-controller="activityController">
-            <div class="col-lg-9">
-                <div class="jumbotron text-center">
+            <div class="col-lg-10">
+                <div class="box">
 
-                    <h1>Add An Activity Page!</h1>
+                    <h1>Activity Page!</h1>
 
-                    <p>{{ message }}</p>
-                    <form   ng-submit="addActivity()" >
-
-
-
-                        <div class="form-group" align="center">
-                            Activity Name
-                            <input type="string"
-                                   class="form-control"
-                                   placeholder="Name"
-                                   ng-model="activity.name"
-                                   ng-style="{'width': 250 + 'px'}"/>
-                        </div>
-
-                        <div class="form-group" align="center">
-                            Distance
-                            <input type="number"
-                                   class="form-control"
-                                   placeholder="Distance in KM"
-                                   ng-model="activity.distance"
-                                   ng-style="{'width': 250 + 'px'}"/>
-                        </div>
-
-                        <div class="form-group" align="center">
-                            Time
-                            <input type="number"
-                                   class="form-control"
-                                   placeholder="Time in Minutes"
-                                   ng-model="activity.time"
-                                   ng-style="{'width': 250 + 'px'}"/>
-                        </div>
-
-                        <div class="form-group" align="center">
-                            Type
-                            <select name="type"
-                                    class="form-control"
-                                    ng-model="activity.type"
-                                    ng-style="{'width': 250 + 'px'}">
-                                <option value="Cycle">Cycle</option>
-                                <option value="Run">Run</option>
-                            </select>
-                        </div>
-
-
-
-                        <button type ="submit" class="btn btn-primary">Create</button>
-                    </form>
                 </div>
             </div>
         </div>
+
+             <div class = "col-lg-1">
+
+                </div>
     </div>
 
 </div>

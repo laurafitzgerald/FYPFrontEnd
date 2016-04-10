@@ -46,10 +46,10 @@
     <!--maps-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqZsJT05wrDHUvNBtpECIkR_ghXl98eU8"
             type="text/javascript"></script>
-    <script src="/dist/ng-map.min.js"></script>`
+    <script src="/dist/ng-map.min.js"></script>
 
 
-    //////////////controllers
+
     <script src="/javascripts/angularApp.js"></script>
     <script src="/javascripts/controllers/maincontroller.js"></script>
     <script src="/javascripts/controllers/activitycontroller.js"></script>
@@ -62,6 +62,7 @@
     <script src="/javascripts/controllers/bikescontroller.js"></script>
     <script src="/javascripts/controllers/reportcontroller.js"></script>
     <script src="/javascripts/controllers/reportscontroller.js"></script>
+    <script src="/javascripts/controllers/homecontroller.js"></script>
 
 
     <style> .glyphicon-thumbs-up { cursor:pointer } </style>
@@ -98,7 +99,7 @@
                    <a href="#" height="94px" width="154px" ><img src="../images/logo-whitefg-hor.png" height="25" width="50" style="display:block;margin-left:0;margin-right:0; vertical-align: middle;"></a>
                     </li>-->
                     <li>
-                        <a href="#"><i class="fa fa-home"></i>Home</a>
+                        <a href="#/"><i class="fa fa-home"></i>Home</a>
 
                     </li>
                     <li class="dropdown">
@@ -159,7 +160,7 @@
                         <a ng-if="isLoggedIn() ==false" href="#login"><i class="fa fa-sign-in"></i>Login</a>
 
 
-                        <a ng-if="isLoggedIn() ==true" href="#login" ng-click="logout()"><i class= "fa fa-sign-out"></i>Logout</a>
+                        <a ng-if="isLoggedIn() ==true" href="#login" ng-click="logout()"><i class= "fa fa-sign-out"></i>Logout {{user}}</a>
 
                     </li>
 
@@ -179,8 +180,9 @@
     <div ng-view></div>
 
 </div> <!-- End of main div -->
-<footer class="text-center">
+<footer class="text-center box footer" style="background: rgba(255,221,133,0.975);">
 
+<p>This application is the Final year project of {{author}}</p>
 </footer>
 </body>
 </html>

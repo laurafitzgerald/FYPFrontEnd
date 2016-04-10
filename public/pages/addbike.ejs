@@ -1,8 +1,11 @@
-<div class ="container">
+<div class ="text-center">
     <div class="row">
         <div ng-controller="bikeController">
+            <div class = "col-lg-1">
+
+            </div>
             <div class="col-lg-9">
-                <div class="jumbotron text-center">
+                <div class="box">
 
                     <h2>Add a Bike</h2>
                     <hr>
@@ -63,7 +66,7 @@
                                    class="form-control"
                                    ng-model="type"
                                    ng-style="{'width': 250 + 'px'}">
-                                <option value="Mountin">Mountain Bike</option>
+                                <optioxn value="Mountin">Mountain Bike</optioxn>
                                 <option value="Racer">Racing Bike</option>
                                 <option value="Hybrid">Hybrid Bike</option>
                                 <option value="Other">Other</option>
@@ -71,8 +74,8 @@
                         </div>
 
 
-                        <button type ="submit" class="btn btn-primary">Create</button>
-
+                        <button type ="submit"  class="btn btn-primary">Create</button>
+                        //ng-disabled="bike.type===undefined"
 
 
 
@@ -80,6 +83,9 @@
 
                     </form>
                 </div>
+            </div>
+            <div class = "col-lg-1">
+
             </div>
         </div>
     </div>

@@ -27,7 +27,7 @@ app.controller('bikesController', ['$scope', '$http' ,'$location', function($sco
 
         }
 
-    }
+    };
 
 
     $scope.report = function(bike){

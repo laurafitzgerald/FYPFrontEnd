@@ -15,5 +15,22 @@ app.controller('reportsController', ['$scope', '$http' , '$routeParams', '$route
     )
 
 
+    $scope.delete = function(id){
+        console.log("delete button clicked");
+        if(confirm("Are you sure you want to delete this report?")){
+            $http.delete('http://localhost:8000/reports/'  + id)
+                .success(function(data){
+                    $route.reload();
+                })
+                .error(function(){
+                    console.log("problem deleteing");
+                })
+
+
+        }
+
+    };
+
+
 }
 ]);

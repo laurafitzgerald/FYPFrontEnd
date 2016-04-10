@@ -2,17 +2,42 @@ var app = angular.module('CyclingFitnessWebApplication');
 
 
 
-app.controller('activitiesController', ['$scope', '$location', '$http', '$cookies', function($scope, $location, $http, $cookies) {
+app.controller('activitiesController', ['$scope', '$location', '$http', '$cookies', '$route', function($scope, $location, $http, $cookies, $route) {
 
     $scope.message = "Activities Page";
+    $scope.noOfCycles = 0;
+    $scope.noOfRuns = 0;
+
+
+    $scope.numberOfActivities = function(data){
+
+        angular.forEach(data, function(value, index){
+
+            console.log(value.type);
+            if(value.type==='Cycle'){
+                $scope.noOfCycles+=1;
+
+            }
+            else
+            if(value.type=='Run'){
+
+                $scope.noOfRuns +=1;
+            }
+
+
+        })
+
+
+    };
 
 
     $scope.activities = null;
     console.log($scope.activities);
-    $http.get('http://localhost:8000/activities').then(
+    $http.get('http://localhost:8000/activities/'  + $cookies.get('currentUser')).then(
         function(response) {
             console.log(response.data);
             $scope.activities = response.data;
+            $scope.numberOfActivities(response.data);
         }
     );
 
@@ -27,13 +52,15 @@ app.controller('activitiesController', ['$scope', '$location', '$http', '$cookie
         $http.delete('http://localhost:8000/activities/' + activity.id).then(
             function(response){
                 console.log(response);
-
+                $route.reload();
 
             }
 
 
         )
     }
+
+
 
 }
 ]);
