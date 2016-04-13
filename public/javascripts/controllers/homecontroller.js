@@ -62,10 +62,10 @@ app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$lo
                                         //console.log(value.timestamp);
                                        // console.log(date);
                                         //value.timestamp = date;
-                                        var newDate = value.timestamp.replace("/", "-")
+
                                        // $scope.feedActivities[index].timestamp = date;]
 
-                                        $scope.feedActivities[index].timestamp = $filter('date')(newDate, " EEE YYYY-MM-DD HH:mm:ss");
+                                        $scope.feedActivities[index].timestamp = $filter('date')(newDate, "YYYY-MM-DD");
                                         console.log($scope.feedActivities[index].timestamp);
                                     });
 

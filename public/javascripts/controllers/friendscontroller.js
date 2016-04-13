@@ -104,7 +104,15 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
         $http.delete('http://localhost:8000/friendships/' +friendship.id)
             .then(function(response){
                 console.log("friend deleted" + response);
-                $location.path('/friends');
+
+
+                $http.get('http://localhost:8000/friendships').then(
+                    function(response){
+
+                        $scope.friendships = response.data;
+                    }
+                );
+
             });
 
     };

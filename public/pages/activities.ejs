@@ -11,21 +11,19 @@
                 <hr>
 
                 <div ng-controller="activitiesController as list">
-                    <table class = "table table-striped table-hover"  valign="middle">
+                    <table class = "table table-striped table-hover"  valign="center">
 
-                        <thead class="table-row">
+                        <thead class="table-row" style="text-align:middle;">
                             <th></th>
+                            <th align="middle">Activity Name
+                            </th>
                             <th valign="middle">
-                                <span class="table-down" valign="middle">Activity Name
+                                <span class="table-down" >Activity Date
                                 </span>
                             </th>
                             <th valign="middle">
-                                <span class="table-down" valign="middle">Activity Date
-                                </span>
-                            </th>
-                            <th valign="middle">
-                                <span class="table-down" valign="middle">
-                                     <a href="#/addactivity" class="btn btn-primary">
+                                <span class="table-down" >
+                                     <a href="/addactivity" class="btn btn-primary">
                                          <span class="fa fa-child"></span>Add New
                                      </a>
                                 </span>
@@ -49,20 +47,20 @@
                             </td>
 
                             <td>
-                                <span class="table-down"  valign="middle">
+                                <span class="table-down">
                                 {{activity.name}}
                                 </span>
 
                             </td>
                             <td>
-                                <span class="table-down" valign="middle">
+                                <span class="table-down" >
                                 {{activity.timestamp}}
                                 </span>
                             </td>
 
                             <td>
 
-                               <span class="table-down" valign="middle">
+                               <span class="table-down" >
 
                                     <button type="button" class="btn btn-default" ng-click="delete(activity)">
                                         <span class="fa fa-trash"></span> Remove
