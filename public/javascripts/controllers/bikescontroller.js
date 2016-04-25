@@ -1,6 +1,6 @@
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('bikesController', ['$scope', '$http' ,'$location', url, function($scope, $http, $location, url){
+app.controller('bikesController', ['$scope', '$http' ,'$location', 'url', function($scope, $http, $location, url){
 
     $scope.message = "Your Bikes";
 

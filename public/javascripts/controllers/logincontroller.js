@@ -3,7 +3,7 @@
  */
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '$window', '$route', '$window', url, function($http, $scope, $location, $cookies, $window, $route, $window, url){
+app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '$window', '$route', '$window', 'url', function($http, $scope, $location, $cookies, $window, $route, $window, url){
 
     $scope.message = "Login Page";
 

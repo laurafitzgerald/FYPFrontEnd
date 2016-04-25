@@ -5,7 +5,7 @@ var app = angular.module('CyclingFitnessWebApplication');
 
 
 
-app.controller('bikeController', ['$scope', '$cookies', '$http', '$location', function($scope, $cookies, $http, $location){
+app.controller('bikeController', ['$scope', '$cookies', '$http', '$location', 'url', function($scope, $cookies, $http, $location, url){
 
 
     $scope.bike = {};

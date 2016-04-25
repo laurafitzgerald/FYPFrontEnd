@@ -1,6 +1,6 @@
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$location', url, function($scope,$cookies,$http, $filter, $location, url){
+app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$location', 'url', function($scope,$cookies,$http, $filter, $location, url){
 
 
     $scope.feedActivities = [];

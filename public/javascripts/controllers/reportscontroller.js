@@ -1,6 +1,6 @@
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('reportsController', ['$scope', '$http' , '$routeParams', '$route', 'NgMap', '$cookies', '$location', url, function($scope, $http, $routeParams, $route, NgMap, $cookies, $location, url){
+app.controller('reportsController', ['$scope', '$http' , '$routeParams', '$route', 'NgMap', '$cookies', '$location', 'url', function($scope, $http, $routeParams, $route, NgMap, $cookies, $location, url){
 
     $scope.reports = {};
     console.log("reports controller");

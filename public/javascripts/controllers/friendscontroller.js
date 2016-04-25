@@ -4,7 +4,7 @@ var app = angular.module('CyclingFitnessWebApplication');
 
 
 
-app.controller('friendsController', ['$http', '$scope', '$timeout', '$location', '$cookies', url, function($http, $scope, $timeout, $location, $cookies, url){
+app.controller('friendsController', ['$http', '$scope', '$timeout', '$location', '$cookies', 'url', function($http, $scope, $timeout, $location, $cookies, url){
 
     $scope.$location = $location;
 

@@ -1,6 +1,6 @@
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('activityController', ['$scope', '$http', '$location', '$cookies', url,  function($scope, $http, $location, $cookies, url) {
+app.controller('activityController', ['$scope', '$http', '$location', '$cookies', 'url',  function($scope, $http, $location, $cookies, url) {
 
     $scope.types = [
         {name: 'Cycle', value: 'Cycle'},
