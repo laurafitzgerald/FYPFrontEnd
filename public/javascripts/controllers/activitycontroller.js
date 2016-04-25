@@ -1,6 +1,6 @@
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('activityController', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
+app.controller('activityController', ['$scope', '$http', '$location', '$cookies', url,  function($scope, $http, $location, $cookies, url) {
 
     $scope.types = [
         {name: 'Cycle', value: 'Cycle'},
@@ -17,7 +17,7 @@ app.controller('activityController', ['$scope', '$http', '$location', '$cookies'
         //console.log($scope.formData.name);
         console.log($scope.activity);
         $scope.activity.username = $cookies.get('currentUser');
-        $http.post('http://localhost:80/activities', $scope.activity)
+        $http.post('http://' + url + '/activities', $scope.activity)
             .success(function(){
 
                 $location.path('/activities');

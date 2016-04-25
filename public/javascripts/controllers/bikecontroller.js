@@ -22,7 +22,7 @@ app.controller('bikeController', ['$scope', '$cookies', '$http', '$location', fu
         console.log("adding bike");
         console.log($scope.bike);
         $scope.bike.username = $cookies.get('currentUser');
-        $http.post('http://localhost:80/bikes', $scope.bike)
+        $http.post('http://' + url + '/bikes', $scope.bike)
             .success(function(){
                 $location.path('/bikes');
             })

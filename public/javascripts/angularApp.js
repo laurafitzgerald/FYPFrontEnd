@@ -32,6 +32,7 @@ app.factory('myHttpResponseInterceptor', ['$q', '$cookies', '$location',  functi
 
 app.constant('author', 'Laura Fitzgerald');
 app.constant('address', 'BSc(Hons) in Software Systems Development, Dept of Computing, and Mathematics, School of Science, W.I.T.');
+app.constant('url', 'a08047f5a028211e682ef02b2adee9a0-835752032.eu-central-1.elb.amazonaws.com:80');
 
 
 app.config(['$provide', '$httpProvider', '$routeProvider',  function($provide, $httpProvider,$routeProvider ){

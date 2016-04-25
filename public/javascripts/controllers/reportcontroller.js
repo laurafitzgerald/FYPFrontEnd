@@ -1,6 +1,6 @@
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('reportController', ['$scope', '$http' , '$routeParams', '$route', 'NgMap', '$cookies', '$location', function($scope, $http, $routeParams, $route, NgMap, $cookies, $location){
+app.controller('reportController', ['$scope', '$http' , '$routeParams', '$route', 'NgMap', '$cookies', '$location', url, function($scope, $http, $routeParams, $route, NgMap, $cookies, $location, url){
 
     $scope.report ={};
 
@@ -15,7 +15,7 @@ app.controller('reportController', ['$scope', '$http' , '$routeParams', '$route'
             $scope.report.username = $cookies.get('currentUser');
             $scope.report.serial_number = $scope.bike.serial_number;
             console.log("report button clicked");
-            $http.post('http://localhost:80/reports', $scope.report)
+            $http.post('http://' + url + '/reports', $scope.report)
                 .success(function(){
 
                 $location.path('/reports');
@@ -40,7 +40,7 @@ app.controller('reportController', ['$scope', '$http' , '$routeParams', '$route'
     ];
 
 
-    $http.get('http://localhost:80/bikes/' + serial_number)
+    $http.get('http://' + url + '/bikes/' + serial_number)
         .success(function(data){
             console.log(data);
             $scope.bike = data[0];

@@ -1,11 +1,11 @@
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('bikesController', ['$scope', '$http' ,'$location', function($scope, $http, $location){
+app.controller('bikesController', ['$scope', '$http' ,'$location', url, function($scope, $http, $location, url){
 
     $scope.message = "Your Bikes";
 
     $scope.bikes = null;
-    $http.get('http://localhost:80/bikes').then(
+    $http.get('http://' + url + '/bikes').then(
         function(response){
             console.log(response.data);
             $scope.bikes = response.data;
@@ -16,7 +16,7 @@ app.controller('bikesController', ['$scope', '$http' ,'$location', function($sco
     $scope.delete = function(serial_number){
         console.log("delete button clicked");
         if(confirm("Are you sure you want to delete this bike?")){
-            $http.delete('http://localhost:80/bikes/'  + serial_number)
+            $http.delete('http://' + url + '/bikes/'  + serial_number)
                 .success(function(data){
 
                 })

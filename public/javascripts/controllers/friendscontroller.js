@@ -4,7 +4,7 @@ var app = angular.module('CyclingFitnessWebApplication');
 
 
 
-app.controller('friendsController', ['$http', '$scope', '$timeout', '$location', '$cookies', function($http, $scope, $timeout, $location, $cookies){
+app.controller('friendsController', ['$http', '$scope', '$timeout', '$location', '$cookies', url, function($http, $scope, $timeout, $location, $cookies, url){
 
     $scope.$location = $location;
 
@@ -13,7 +13,7 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
     $scope.friendships = null;
     $scope.searchFriendships = null;
     $scope.results = false;
-    $http.get('http://localhost:80/friendships').then(
+    $http.get('http://' + url + '/friendships').then(
         function(response){
 
             $scope.friendships = response.data;
@@ -26,7 +26,7 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
         newFriend.user_name = $cookies.get('currentUser');
         newFriend.friend_name = user.username;
 
-        $http.post('http://localhost:80/friendship', newFriend).then(
+        $http.post('http://' + url + '/friendship', newFriend).then(
             function(){
 
                 $location.path('/friends');
@@ -39,7 +39,7 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
     $scope.searchByUsername = function(){
 
         console.log($scope.username);
-        $http.get('http://localhost:80/friendships', {
+        $http.get('http://' + url + '/friendships', {
             params: {username : $scope.username}
         }).then(
             function(response){
@@ -82,7 +82,7 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
     $scope.searchByLocation = function(){
 
         console.log($scope.location);
-        $http.get('http://localhost:80/friendships', {
+        $http.get('http://' + url + '/friendships', {
             params: {location : $scope.location}
         }).then(
             function(response){
@@ -101,7 +101,7 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
 
     $scope.delete = function(friendship){
         console.log("delete called");
-        $http.delete('http://localhost:80/friendships/' +friendship.id)
+        $http.delete('http://' + url + '/friendships/' +friendship.id)
             .then(function(response){
                 console.log("friend deleted" + response);
 

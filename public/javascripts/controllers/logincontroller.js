@@ -3,7 +3,7 @@
  */
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '$window', '$route', '$window', function($http, $scope, $location, $cookies, $window, $route, $window){
+app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '$window', '$route', '$window', url, function($http, $scope, $location, $cookies, $window, $route, $window, url){
 
     $scope.message = "Login Page";
 
@@ -15,7 +15,7 @@ app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '
     $scope.login = function(){
 
         console.log($scope.userlogin);
-        $http.post('http://localhost:80/sessions', $scope.userlogin)
+        $http.post('http://' + url + '/sessions', $scope.userlogin)
             .success(function(response){
                 console.log("'" + response + "'");
                 if(angular.equals("", response)){
@@ -45,7 +45,7 @@ app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '
     $scope.register = function(){
         console.log("Register clicked");
         console.log($scope.userregister);
-        $http.post('http://localhost:80/users', $scope.userregister)
+        $http.post('http://' + url + '/users', $scope.userregister)
             .success(function(response){
                 console.log("Response from register : " + response.data);
                 $cookies.put('currentUser', $scope.register.username);

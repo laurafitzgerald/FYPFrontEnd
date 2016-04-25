@@ -2,7 +2,7 @@ var app = angular.module('CyclingFitnessWebApplication');
 
 
 
-app.controller('activitiesController', ['$scope', '$location', '$http', '$cookies', '$route', function($scope, $location, $http, $cookies, $route) {
+app.controller('activitiesController', ['$scope', '$location', '$http', '$cookies', '$route', 'url', function($scope, $location, $http, $cookies, $route, url) {
 
     $scope.message = "Activities Page";
     $scope.noOfCycles = 0;
@@ -33,7 +33,7 @@ app.controller('activitiesController', ['$scope', '$location', '$http', '$cookie
 
     $scope.activities = null;
     console.log($scope.activities);
-    $http.get('http://localhost:80/activities/'  + $cookies.get('currentUser')).then(
+    $http.get('http://' + url + '/activities/'  + $cookies.get('currentUser')).then(
         function(response) {
             console.log(response.data);
             $scope.activities = response.data;
@@ -49,7 +49,7 @@ app.controller('activitiesController', ['$scope', '$location', '$http', '$cookie
 
     $scope.delete = function(activity){
         console.log(activity);
-        $http.delete('http://localhost:80/activities/' + activity.id).then(
+        $http.delete('http://' + url + '/activities/' + activity.id).then(
             function(response){
                 console.log(response);
                 $route.reload();

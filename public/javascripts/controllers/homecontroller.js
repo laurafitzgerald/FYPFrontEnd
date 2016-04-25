@@ -1,6 +1,6 @@
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$location', function($scope,$cookies,$http, $filter, $location){
+app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$location', url, function($scope,$cookies,$http, $filter, $location, url){
 
 
     $scope.feedActivities = [];
@@ -25,14 +25,14 @@ app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$lo
 
     $scope.friends = [];
 
-    $http.get('http://localhost:80/friendships').then(
+    $http.get('http://' + url + '/friendships').then(
         function(response){
 
             $scope.friends = response.data;
             console.log($scope.friends);
 
 
-            $http.get('http://localhost:80/activities/' + $cookies.get('currentUser')).then(
+            $http.get('http://' + url + '/activities/' + $cookies.get('currentUser')).then(
                 function(response){
 
                     $scope.feedActivities= response.data;
@@ -42,7 +42,7 @@ app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$lo
                     angular.forEach($scope.friends ,function(value, index){
 
                             console.log(value.friend_name);
-                            $http.get('http://localhost:80/activities/' + value.friend_name).then(
+                            $http.get('http://' + url + '/activities/' + value.friend_name).then(
                                 function(response){
                                     console.log(response.data);
 
