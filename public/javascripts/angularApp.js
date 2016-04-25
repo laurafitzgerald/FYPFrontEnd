@@ -31,6 +31,7 @@ app.factory('myHttpResponseInterceptor', ['$q', '$cookies', '$location',  functi
 }]);
 
 app.constant('author', 'Laura Fitzgerald');
+app.constant('address', 'BSc(Hons) in Software Systems Development, Dept of Computing, and Mathematics, School of Science, W.I.T.');
 
 
 app.config(['$provide', '$httpProvider', '$routeProvider',  function($provide, $httpProvider,$routeProvider ){

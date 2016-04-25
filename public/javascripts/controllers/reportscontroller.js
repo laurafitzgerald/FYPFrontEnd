@@ -4,7 +4,7 @@ app.controller('reportsController', ['$scope', '$http' , '$routeParams', '$route
 
     $scope.reports = {};
     console.log("reports controller");
-    $http.get('http://localhost:8000/reports?username='+ $cookies.get('currentUser')).then(
+    $http.get('http://localhost:80/reports?username='+ $cookies.get('currentUser')).then(
         function(response){
             console.log(response.data);
             $scope.reports = response.data;
@@ -18,7 +18,7 @@ app.controller('reportsController', ['$scope', '$http' , '$routeParams', '$route
     $scope.delete = function(id){
         console.log("delete button clicked");
         if(confirm("Are you sure you want to delete this report?")){
-            $http.delete('http://localhost:8000/reports/'  + id)
+            $http.delete('http://localhost:80/reports/'  + id)
                 .success(function(data){
                     $route.reload();
                 })

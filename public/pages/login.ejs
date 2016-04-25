@@ -8,7 +8,7 @@
                 <div class="box" class="text-center" style="min-height: 500px;">
                         <h2 class="text-center">Login</h2>
                     <hr>
-                    <form ng-submit="login()" valign="center">
+                    <form ng-submit="login()" align="center">
                         <div class="form-group" align = "center">
                             Username
                             <input type="string"
@@ -27,7 +27,7 @@
                                     ng-model="userlogin.password"
                                    ng-style="{'width': 250 + 'px'}"/>
                         </div>
-                        <button valign="center" type="submit" class = "btn btn-primary">Log-in</button>
+                        <button  type="submit" class = "btn btn-primary">Log-in</button>
 
 
                     </form>
@@ -42,8 +42,43 @@
                     <hr>
 
 
-                    <button valign="center" type="submit" class = "btn btn-primary">Register</button>
+                    <form ng-submit="register()" align="center">
+                        <div class="form-group" align = "center">
+                            Username
+                            <input type="string"
+                                   class="form-control"
+                                   ng-model="userregister.username"
+                                   ng-style="{'width': 250 + 'px'}"
+                            />
+                        </div>
+                        <div class="form-group" align="center">
+                            Email
+                            <input type="email"
+                                   class="form-control"
+                                   ng-model="userregister.email"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
 
+                        <div class="form-group" align="center">
+                            Location
+                            <input type="string"
+                                   class="form-control"
+                                   ng-model="userregister.location"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+
+
+                        <div class="form-group" align="center">
+                            Password
+                            <input type="password"
+                                   class="form-control"
+                                   ng-model="userregister.password"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
+                        <button type="submit" class = "btn btn-primary">Register</button>
+
+
+                    </form>
                 </div>
 
 

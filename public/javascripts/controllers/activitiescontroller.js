@@ -33,7 +33,7 @@ app.controller('activitiesController', ['$scope', '$location', '$http', '$cookie
 
     $scope.activities = null;
     console.log($scope.activities);
-    $http.get('http://localhost:8000/activities/'  + $cookies.get('currentUser')).then(
+    $http.get('http://localhost:80/activities/'  + $cookies.get('currentUser')).then(
         function(response) {
             console.log(response.data);
             $scope.activities = response.data;
@@ -49,7 +49,7 @@ app.controller('activitiesController', ['$scope', '$location', '$http', '$cookie
 
     $scope.delete = function(activity){
         console.log(activity);
-        $http.delete('http://localhost:8000/activities/' + activity.id).then(
+        $http.delete('http://localhost:80/activities/' + activity.id).then(
             function(response){
                 console.log(response);
                 $route.reload();

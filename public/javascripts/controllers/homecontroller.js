@@ -25,14 +25,14 @@ app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$lo
 
     $scope.friends = [];
 
-    $http.get('http://localhost:8000/friendships').then(
+    $http.get('http://localhost:80/friendships').then(
         function(response){
 
             $scope.friends = response.data;
             console.log($scope.friends);
 
 
-            $http.get('http://localhost:8000/activities/' + $cookies.get('currentUser')).then(
+            $http.get('http://localhost:80/activities/' + $cookies.get('currentUser')).then(
                 function(response){
 
                     $scope.feedActivities= response.data;
@@ -42,7 +42,7 @@ app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$lo
                     angular.forEach($scope.friends ,function(value, index){
 
                             console.log(value.friend_name);
-                            $http.get('http://localhost:8000/activities/' + value.friend_name).then(
+                            $http.get('http://localhost:80/activities/' + value.friend_name).then(
                                 function(response){
                                     console.log(response.data);
 
@@ -50,7 +50,7 @@ app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$lo
 
                                             $scope.feedActivities = $scope.feedActivities.concat(value);
                                     });
-                                    console.log(value.friend_name + " activties : " + response.data);
+                                    console.log(value.friend_name + " activi                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ties : " + response.data);
 
                                     console.log($scope.feedActivities);
 
@@ -65,7 +65,7 @@ app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$lo
 
                                        // $scope.feedActivities[index].timestamp = date;]
 
-                                        $scope.feedActivities[index].timestamp = $filter('date')(newDate, "YYYY-MM-DD");
+                                        //$scope.feedActivities[index].timestamp = $filter('date')(newDate, "YYYY-MM-DD");
                                         console.log($scope.feedActivities[index].timestamp);
                                     });
 

@@ -89,6 +89,8 @@
             <div class = "box" ng-controller="bikesController as list">
                 <h4>Your Bikes</br><span class="fa fa-bicycle"></span></h4>
                 <hr>
+                <div ng-show="bikes.length===0"><p style="font-size:12px">You haven't any bikes added</p><p style="font-size:12px">Click <a href="#addbike"><b>here</b></a> to add some gear</p>
+                </div>
                 <div ng-repeat="bike in bikes | limitTo: 2">
                     <p><b>Serial: </b>{{bike.serial_number}}</p>
                     <p><b>Nickname : </b>{{bike.nickname}}</p>

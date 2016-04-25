@@ -160,7 +160,7 @@
                         <a ng-if="isLoggedIn() ==false" href="#login"><i class="fa fa-sign-in"></i>Login</a>
 
 
-                        <a ng-if="isLoggedIn() ==true" href="#login" ng-click="logout()"><i class= "fa fa-sign-out"></i>Logout {{user}}</a>
+                        <a ng-if="isLoggedIn() ==true" href="#login" ng-click="logout()"><i class= "fa fa-sign-out"></i>Logout {{username}}</a>
 
                     </li>
 
@@ -182,7 +182,16 @@
 </div> <!-- End of main div -->
 <footer class="text-center box footer" style="background: rgba(255,221,133,0.975);">
 
-<p>This application is the Final year project of {{author}}</p>
+    <div class ="row">
+
+            <p>		   <a href="https://ie.linkedin.com/in/laurafitz" target="_blank">
+                    <img src="images/Linkedin.svg" border="0"  width="50" height="50">
+                </a>&#169 {{author}} {{address}}</p>
+
+
+    </div>
+
+
 </footer>
 </body>
 </html>

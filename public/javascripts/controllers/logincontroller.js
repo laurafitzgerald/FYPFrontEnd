@@ -3,18 +3,19 @@
  */
 var app = angular.module('CyclingFitnessWebApplication');
 
-app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '$window', function($http, $scope, $location, $cookies, $window){
+app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '$window', '$route', '$window', function($http, $scope, $location, $cookies, $window, $route, $window){
 
     $scope.message = "Login Page";
 
     $scope.userlogin = {};
+    $scope.userregister = {};
     console.log($scope.userlogin);
 
     console.log("Session key " + $cookies.get('sessionKey'));
     $scope.login = function(){
 
         console.log($scope.userlogin);
-        $http.post('http://localhost:8000/sessions', $scope.userlogin)
+        $http.post('http://localhost:80/sessions', $scope.userlogin)
             .success(function(response){
                 console.log("'" + response + "'");
                 if(angular.equals("", response)){
@@ -28,9 +29,30 @@ app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '
                     $cookies.put('sessionKey', response);
                     $cookies.put('currentUser', $scope.userlogin.username);
                     console.log("Session key " + $cookies.get('sessionKey'));
+                    $window.location.reload();
                     $location.path('/homefeed');
+
                 }
 
+
+            })
+            .error(function(response){
+
+                console.log("Error " + response);
+
+            });
+    };
+    $scope.register = function(){
+        console.log("Register clicked");
+        console.log($scope.userregister);
+        $http.post('http://localhost:80/users', $scope.userregister)
+            .success(function(response){
+                console.log("Response from register : " + response.data);
+                $cookies.put('currentUser', $scope.register.username);
+
+                $scope.userlogin.username = $scope.userregister.username;
+                $scope.userlogin.password = $scope.userregister.password;
+               $scope.login();
 
             })
             .error(function(response){

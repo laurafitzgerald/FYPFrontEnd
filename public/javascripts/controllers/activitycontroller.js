@@ -17,7 +17,7 @@ app.controller('activityController', ['$scope', '$http', '$location', '$cookies'
         //console.log($scope.formData.name);
         console.log($scope.activity);
         $scope.activity.username = $cookies.get('currentUser');
-        $http.post('http://localhost:8000/activities', $scope.activity)
+        $http.post('http://localhost:80/activities', $scope.activity)
             .success(function(){
 
                 $location.path('/activities');

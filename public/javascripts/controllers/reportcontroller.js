@@ -15,7 +15,7 @@ app.controller('reportController', ['$scope', '$http' , '$routeParams', '$route'
             $scope.report.username = $cookies.get('currentUser');
             $scope.report.serial_number = $scope.bike.serial_number;
             console.log("report button clicked");
-            $http.post('http://localhost:8000/reports', $scope.report)
+            $http.post('http://localhost:80/reports', $scope.report)
                 .success(function(){
 
                 $location.path('/reports');
@@ -40,7 +40,7 @@ app.controller('reportController', ['$scope', '$http' , '$routeParams', '$route'
     ];
 
 
-    $http.get('http://localhost:8000/bikes/' + serial_number)
+    $http.get('http://localhost:80/bikes/' + serial_number)
         .success(function(data){
             console.log(data);
             $scope.bike = data[0];
