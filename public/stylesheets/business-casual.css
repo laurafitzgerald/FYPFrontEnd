@@ -212,7 +212,7 @@ footer p {
         margin: 0;
         padding: 0 0 40px;
         text-align: center;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.975);
         text-transform: uppercase;
         font-size: 2.5em;
         font-weight: 400;
@@ -236,8 +236,7 @@ footer p {
 
     .navbar-default {
         border: none;
-        background: #251204;
-        background: rgba(255,221,133,0.975);
+        background: rgba(255,221,133,0.5);
     }
 
     .nav>li>a {

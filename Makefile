@@ -14,4 +14,10 @@ build:
 
 release: build
 	docker push laurafitz/frontend
+	make update
+
+update:
+	kubectl --kubeconfig=/home/laura/fyp/my-cluster/kubeconfig delete rc frontend
+	kubectl --kubeconfig=/home/laura/fyp/my-cluster/kubeconfig create -f frontend-rc.yaml
+	kubectl --kubeconfig=/home/laura/fyp/my-cluster/kubeconfig get pods -w
 	
