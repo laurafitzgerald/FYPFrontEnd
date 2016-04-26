@@ -42,6 +42,8 @@ app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '
 
             });
     };
+
+
     $scope.register = function(){
         console.log("Register clicked");
         console.log($scope.userregister);
@@ -60,7 +62,10 @@ app.controller('loginController', ['$http', '$scope', '$location', '$cookies', '
                 console.log("Error " + response);
 
             });
-    }
+    };
+
+
+
 
 }
 ]);

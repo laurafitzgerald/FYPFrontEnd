@@ -76,6 +76,18 @@
                                    ng-model="userregister.password"
                                    ng-style="{'width': 250 + 'px'}"/>
                         </div>
+
+
+                        <div class="form-group" align="center">
+                            Validate Password
+                            <input type="password"
+                                   required
+                                   compare-to="userregister.password"
+                                   class="form-control"
+                                   placeholder="Passwords must match"
+                                   ng-model="confirmpassword"
+                                   ng-style="{'width': 250 + 'px'}"/>
+                        </div>
                         <button type="submit" class = "btn btn-primary">Register</button>
 
 
