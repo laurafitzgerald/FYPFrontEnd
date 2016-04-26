@@ -54,7 +54,8 @@
                             </td>
                             <td>
                                 <span class="table-down" >
-                                {{activity.timestamp}}
+                                {{activity.timestamp | limitTo : 16}}
+
                                 </span>
                             </td>
 

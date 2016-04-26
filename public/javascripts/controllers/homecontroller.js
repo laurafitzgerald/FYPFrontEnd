@@ -56,20 +56,6 @@ app.controller('homeController', ['$scope', '$cookies', '$http', '$filter', '$lo
 
 
 
-                                    angular.forEach($scope.feedActivities, function(value, index){
-
-                                        //var date = new Date.parse(value.timestamp);
-                                        //console.log(value.timestamp);
-                                       // console.log(date);
-                                        //value.timestamp = date;
-
-                                       // $scope.feedActivities[index].timestamp = date;]
-
-                                        //$scope.feedActivities[index].timestamp = $filter('date')(newDate, "YYYY-MM-DD");
-                                        console.log($scope.feedActivities[index].timestamp);
-                                    });
-
-
                                 }
 
                             )
