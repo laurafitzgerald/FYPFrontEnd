@@ -34,13 +34,19 @@
                         <marker position="52.2593, 7.1101"></marker>
                 </div>-->
 
-                <div>
-                    <map center="waterford" zoom="16">
-                        <marker position="[52.2593, 7.1101]"></marker>
+                <div ng-if="ifMap()">
+                    <map center="{{user.location}}" zoom="16" on-click="mapClicked($event)">
+                        <marker position="{{report.location_lat}},{{report.location_lng}}" ></marker>
                     </map>
                 </div>
 
                 <form name ="form"  novalidate class="css-form">
+                    <div>
+                       <input type="radio" name="somethign" value="1" ng-model="checkboxSelection" ng-click="setMap()"/> Map Input
+                       <input type="radio" name="somethign" value="2" ng-model="checkboxSelection" ng-click="setText()"/> Text Input
+            </div>
+
+
                     <div class="form-group" align="left">
                         Location
                         <input type="string"

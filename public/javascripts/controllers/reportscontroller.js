@@ -10,10 +10,13 @@ app.controller('reportsController', ['$scope', '$http' , '$routeParams', '$route
             $scope.reports = response.data;
 
 
+        },
+        function(error){
+
+            console.log(error);
         }
 
-    )
-
+    );
 
     $scope.delete = function(id){
         console.log("delete button clicked");
