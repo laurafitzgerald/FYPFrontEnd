@@ -59,6 +59,7 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
         angular.forEach(data, function(searchvalue, searchindex){
 
             if(searchvalue.username===$cookies.get('currentUser')){
+                console.log("found current user");
                 $scope.searchFriendships.splice(searchindex, 1);
             }
             angular.forEach($scope.friendships, function(value, index){
@@ -106,7 +107,17 @@ app.controller('friendsController', ['$http', '$scope', '$timeout', '$location',
                 console.log("friend deleted" + response);
 
 
-                $http.get('http://localhost:80/friendships').then(
+                $http.get('http://' +url + '/friendships').then(
+                    function(response){
+
+                        $scope.friendships = response.data;
+                    }
+                );
+
+            })
+            .then(function(error){
+
+                $http.get('http://' +url + '/friendships').then(
                     function(response){
 
                         $scope.friendships = response.data;
