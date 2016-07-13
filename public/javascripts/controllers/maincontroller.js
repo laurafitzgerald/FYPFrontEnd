@@ -1,6 +1,6 @@
 var app = angular.module('CyclingFitnessWebApplication' );
 
-app.constant('author', 'Laura Fitzgerald');
+app.constant('author', 'Laura  -- Fitzgerald');
 
 
 app.config(['author', function(author){
